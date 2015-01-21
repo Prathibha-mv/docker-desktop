@@ -59,7 +59,8 @@ RUN localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 || :
 
 # Copy the files into the container
 ADD . /src
-
+ADD shellScripts/* /usr/test/
+RUN chmod 777 /usr/test/*
 EXPOSE 22
 # Start xdm and ssh services.
 CMD ["/bin/bash", "/src/startup.sh"]
